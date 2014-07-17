@@ -1,1 +1,19 @@
 var keystone = require('keystone');
+	Types = keystone.Field.Types;
+
+/**
+ * Group Model
+ * ===========
+ */
+
+var Group = new keystone.List('Group', {
+	autokey: { from: 'name', path: 'key', unique: true }
+});
+
+Group.add({
+	name: { type: String, required: true }
+});
+
+Group.relationship({ ref: 'User', path: 'groups'});
+
+Group.register();
