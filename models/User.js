@@ -14,7 +14,8 @@ User.add({
 	password: { type: Types.Password, initial: true, required: true }
 }, 'Permissions', {
 	isAdmin: { type: Boolean, label: 'Can access Keystone', index: true },
-	groups: { type: Types.Relationship, ref: 'Group', many: true }
+	groups: { type: Types.Relationship, ref: 'Group', many: true },
+	position: { type: Types.Text, required: false }
 });
 
 // Provide access to Keystone
@@ -28,6 +29,7 @@ User.schema.virtual('canAccessKeystone').get(function() {
  */
 
 User.relationship({ ref: 'Post', path: 'author' });
+User.relationship({ ref: 'Checklist', path: 'users' });
 
 
 /**

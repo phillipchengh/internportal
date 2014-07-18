@@ -1,5 +1,5 @@
 <div class="container">
-	<h1>Blog</h1>
+  <h1>Blog</h1>
 </div>
 <div class="container">
 	<div class="row">
@@ -10,7 +10,7 @@
 				<div data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user _id}}{{/if}}" class="post">
 					<h2><a href="{{postUrl slug}}">{{{title}}}</a></h2>
 					<p class="lead text-muted">{{{categoryList categories prefix="Posted in "}}}
-							{{#if author.name.first}}by {{author.name.first}}{{/if}}
+            {{#if author.name.first}}by {{author.name.first}}{{/if}} to  {{{groupList groups}}}
 					</p>
 					<p>{{{content.extended}}}</p>
 					<p class="read-more"><a href="{{postUrl slug}}">Read more...</a></p>

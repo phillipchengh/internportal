@@ -119,6 +119,33 @@ module.exports = function() {
 		return new hbs.SafeString(output);
 	};
 	
+_helpers.groupList = function(groups, options) {
+		var autolink = _.isString(options.hash.autolink) && options.hash.autolink === "false" ? false : true,
+			separator = _.isString(options.hash.separator) ? options.hash.separator : ', ',
+			prefix = _.isString(options.hash.prefix) ? options.hash.prefix : '',
+			suffix = _.isString(options.hash.suffix) ? options.hash.suffix : '',
+			output = '';
+		
+		function createTagList(tags) {
+			var tagNames = _.pluck(tags, 'name');
+			
+			if (autolink) {
+				return _.map(tags, function(tag) {
+					return linkTemplate({
+						url: ('blog/' + tag.key),
+						text: _.escape(tag.name)
+					});
+				}).join(separator);
+			}
+			return _.escape(tagNames.join(separator));
+		}
+		
+		if (groups && groups.length) {
+			output = prefix + createTagList(groups) + suffix;
+		}
+		return new hbs.SafeString(output);
+	};
+
 	/* To Implement [Ghost Helpers](http://docs.ghost.org/themes/#helpers)
 	 * The [source](https://github.com/TryGhost/Ghost/blob/master/core/server/helpers/index.js)
 	 *

@@ -45,8 +45,8 @@ exports = module.exports = function(req, res) {
 	
 	// Load the current category filter
 	view.on('init', function(next) {
-		
 		if (req.params.category) {
+
 			keystone.list('PostCategory').model.findOne({ key: locals.filters.category }).exec(function(err, result) {
 				locals.data.category = result;
 				next(err);
@@ -67,12 +67,14 @@ exports = module.exports = function(req, res) {
 			})
 			.where('state', 'published')
 			.sort('-publishedDate')
-			.populate('author categories');
+			.populate('author categories groups');
 		
 		if (locals.data.category) {
 			q.where('categories').in([locals.data.category]);
 		}
-		
+
+    q.where('groups').in(req.user.groups);
+
 		q.exec(function(err, results) {
 			locals.data.posts = results;
 			next(err);
