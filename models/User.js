@@ -36,5 +36,5 @@ User.relationship({ ref: 'Checklist', path: 'users' });
  * Registration
  */
 
-User.defaultColumns = 'name, email, isAdmin';
+User.defaultColumns = 'name, email, groups, isAdmin';
 User.register();

@@ -42,6 +42,7 @@ exports = module.exports = function(app) {
 	app.get('/gallery', middleware.requireUser, routes.views.gallery);
 	app.all('/contact', middleware.requireUser, routes.views.contact);
 	app.get('/tasks', middleware.requireUser, routes.views.tasks);
+  app.get('/interns', middleware.requireUser, routes.views.interns);
 	
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);

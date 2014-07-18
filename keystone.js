@@ -12,8 +12,8 @@ var keystone = require('keystone'),
 
 keystone.init({
 
-	'name': 'Intern Portal',
-	'brand': 'Intern Portal',
+	'name': 'InternHub',
+	'brand': 'InternHub',
 
 	'less': 'public',
 	'static': 'public',
