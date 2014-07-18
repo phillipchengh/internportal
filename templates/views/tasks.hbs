@@ -1,0 +1,35 @@
+<div class="container">
+  <h1>Tasks</h1>
+</div>
+<div class="container">
+  {{# each checklists }}
+  <div class="container">
+  <div class="progress">
+    <div class="progress-bar progress-bar-striped active {{checklist.key}}"  role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+      <span class="sr-only">Some % Complete</span>
+    </div>
+  </div>
+  <form role="form">
+    <span>
+      <h2>{{checklist.title}}</h2>
+      <h4>due by {{checklist.dueDate}}</h4>
+    </span>
+    <div class="container">
+      <div class="form-group">
+        {{#task}}
+        <div class="checkbox checkitem">
+          <label>
+            <input type="checkbox" class="checkboxitem {{../checklist.key}}" data-group="{{../checklist.key}}">{{this.checkitem.title}}
+            <div class="container">
+              {{{this.checkitem.text}}}
+            </div>
+          </label>
+        </div>
+        {{/task}}
+        <button href="#" type="button" class="btn btn-default {{checklist.key}}">Submit</button>
+      </div>
+    </form>
+  </div>
+  <br/>
+  {{/each}}
+</div>

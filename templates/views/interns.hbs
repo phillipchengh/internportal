@@ -1,0 +1,14 @@
+<div class="container">
+  {{#interns}}
+  <h1>{{year}}</h1>
+    </br>
+    {{#persons}}
+    <div class="container">
+      <h2>{{name.first}} {{name.last}}</h2>
+      {{#if position}}<b>Position:</b> {{position}}</br>{{/if}}
+      {{#if location}}<b>Location:</b> {{location}}</br>{{/if}}
+      <b>Email:</b> {{email}}
+    </div>
+    {{/persons}}
+  {{/interns}}
+</div>
