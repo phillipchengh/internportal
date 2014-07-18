@@ -15,7 +15,9 @@ User.add({
 }, 'Permissions', {
 	isAdmin: { type: Boolean, label: 'Can access Keystone', index: true },
 	groups: { type: Types.Relationship, ref: 'Group', many: true },
-	position: { type: Types.Text, required: false }
+	position: { type: Types.Text, required: false },
+  year: { type: Types.Text, default: '2014' },
+  location: { type: Types.Text, default: 'Sony' }
 });
 
 // Provide access to Keystone

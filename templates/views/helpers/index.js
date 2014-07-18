@@ -303,6 +303,10 @@ _helpers.groupList = function(groups, options) {
 		}
 		return new hbs.SafeString(output);
 	};
+
+  _helpers.moduloX = function() {
+    return (this.index % 2) === 0;
+  };
 	
 	return _helpers;
 };
